@@ -12,7 +12,7 @@ public final class Keychain {
     
     public static let instance = Keychain()
     
-    func getKeyChain(service: String, account: String) -> Data? {
+    public func getKeyChain(service: String, account: String) -> Data? {
         let query = [
             kSecReturnData: true,
             kSecClass: kSecClassGenericPassword,
@@ -24,7 +24,7 @@ public final class Keychain {
         return (result as? Data)
     }
     
-    func addToKeyChain(secret: Data, service: String, account: String) -> Int32 {
+    public func addToKeyChain(secret: Data, service: String, account: String) -> Int32 {
         let query = [
             kSecValueData: secret,
             kSecClass: kSecClassGenericPassword,
@@ -34,7 +34,7 @@ public final class Keychain {
         return SecItemAdd(query, nil)
     }
     
-    func delFromKeyChain(service: String, account: String) {
+    public func delFromKeyChain(service: String, account: String) {
         let query = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
