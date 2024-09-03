@@ -10,7 +10,7 @@ import Foundation
 
 public final class Keychain {
     
-    static let instance = Keychain()
+    public static let instance = Keychain()
     
     func getKeyChain(service: String, account: String) -> Data? {
         let query = [
