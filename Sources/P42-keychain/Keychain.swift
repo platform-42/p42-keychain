@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class Keychain {
+public final class Keychain {
     
     static let instance = Keychain()
     
