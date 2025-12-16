@@ -8,6 +8,7 @@ import Foundation
 
 public class Security {
     
+    @discardableResult
     public static func authorizeProfile(
         _ email: String,
         applicationName: String,
