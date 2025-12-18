@@ -20,11 +20,11 @@ public class Security {
     @discardableResult
     public static func authorizeProfile(
         _ email: String,
-        diplayName: String,
+        displayName: String,
         serviceToken: String,
         secret: String
     ) -> Bool {
-        let service = String(format: "%@.%@", diplayName, serviceToken)
+        let service = String(format: "%@.%@", displayName, serviceToken)
         Keychain.instance.delFromKeyChain(
             service: service,
             account: email
@@ -39,10 +39,10 @@ public class Security {
     
     public static func revokeProfile(
         _ email: String,
-        diplayName: String,
+        displayName: String,
         serviceToken: String
     ) {
-        let service = String(format: "%@.%@", diplayName, serviceToken)
+        let service = String(format: "%@.%@", displayName, serviceToken)
         Keychain.instance.delFromKeyChain(
             service: service,
             account: email
