@@ -18,7 +18,7 @@ import Foundation
 public class Security {
     
     @discardableResult
-    static func authorizeProfile(
+    public static func authorizeProfile(
         _ email: String,
         diplayName: String,
         serviceToken: String,
@@ -37,7 +37,7 @@ public class Security {
         return (status == 0)
     }
     
-    static func revokeProfile(
+    public static func revokeProfile(
         _ email: String,
         diplayName: String,
         serviceToken: String
