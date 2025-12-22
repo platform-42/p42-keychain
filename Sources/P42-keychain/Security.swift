@@ -19,7 +19,7 @@ public class Security {
     
     @discardableResult
     public static func authorizeObject(
-        _ email: String,
+        _ account: String,
         applicationId: String,
         objectId: String,
         secret: String
@@ -27,25 +27,25 @@ public class Security {
         let service = String(format: "%@.%@", applicationId, objectId)
         Keychain.instance.delFromKeyChain(
             service: service,
-            account: email
+            account: account
         )
         let status = Keychain.instance.addToKeyChain(
             secret: Data(secret.utf8),
             service: service,
-            account: email
+            account: account
         )
         return (status == 0)
     }
     
     public static func revokeObject(
-        _ email: String,
+        _ account: String,
         applicationId: String,
         objectId: String
     ) {
         let service = String(format: "%@.%@", applicationId, objectId)
         Keychain.instance.delFromKeyChain(
             service: service,
-            account: email
+            account: account
         )
     }
     
