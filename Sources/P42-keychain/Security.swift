@@ -18,13 +18,13 @@ import Foundation
 public class Security {
     
     @discardableResult
-    public static func authorizeProfile(
+    public static func authorizeObject(
         _ email: String,
-        displayName: String,
-        serviceToken: String,
+        applicationId: String,
+        objectId: String,
         secret: String
     ) -> Bool {
-        let service = String(format: "%@.%@", displayName, serviceToken)
+        let service = String(format: "%@.%@", applicationId, objectId)
         Keychain.instance.delFromKeyChain(
             service: service,
             account: email
@@ -37,12 +37,12 @@ public class Security {
         return (status == 0)
     }
     
-    public static func revokeProfile(
+    public static func revokeObject(
         _ email: String,
-        displayName: String,
-        serviceToken: String
+        applicationId: String,
+        objectId: String
     ) {
-        let service = String(format: "%@.%@", displayName, serviceToken)
+        let service = String(format: "%@.%@", applicationId, objectId)
         Keychain.instance.delFromKeyChain(
             service: service,
             account: email
