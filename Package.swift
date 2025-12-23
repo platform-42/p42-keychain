@@ -3,6 +3,10 @@ import PackageDescription
 
 let package = Package(
     name: "P42-keychain",
+    platforms: [
+        .iOS(.v16),
+        .macOS(.v13)
+    ],
     products: [
         .library(
             name: "P42-keychain",
